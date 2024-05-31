@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=E:\Javascript\TFG-BackendConcesionario\venv
+set VIRTUAL_ENV=C:\Users\ibay2\Downloads\TFG-BackendConcesionario-5aa6372ecd7339e6543a6d2a6c24860175c3edf8\TFG-BackendConcesionario-5aa6372ecd7339e6543a6d2a6c24860175c3edf8\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

@@ -29,8 +29,22 @@ async def get_coche(id: int):
     if coche_resultado is None:
         raise HTTPException(status_code=404, detail="No se encontró ningún coche con el ID proporcionado")
     
-    # Convertir a un diccionario Python antes de devolver la respuesta
-    coche_dict = dict(coche_resultado)
+    # Convertir a un diccionario Python manualmente
+    coche_dict = {
+        "id": coche_resultado.id,
+        "marca_id": coche_resultado.marca_id,
+        "modelo": coche_resultado.modelo,
+        "precio": coche_resultado.precio,
+        "km": coche_resultado.km,
+        "anio": coche_resultado.anio,
+        "cajaCambios": coche_resultado.cajaCambios.value,  # Si es un Enum, convierte a valor de cadena
+        "combustible": coche_resultado.combustible.value,  # Si es un Enum, convierte a valor de cadena
+        "distAmbiental": coche_resultado.distAmbiental.value,  # Si es un Enum, convierte a valor de cadena
+        "cilindrada": coche_resultado.cilindrada,
+        "tipCarr": coche_resultado.tipCarr.value,  # Si es un Enum, convierte a valor de cadena
+        "color": coche_resultado.color.value,  # Si es un Enum, convierte a valor de cadena
+        "vendedor_id": coche_resultado.vendedor_id
+    }
     
     return JSONResponse(content=coche_dict, status_code=200)
 
