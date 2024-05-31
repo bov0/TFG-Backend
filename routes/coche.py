@@ -8,6 +8,7 @@ from schemas.Coche import CocheBase
 from typing import List
 from starlette.status import HTTP_204_NO_CONTENT
 from sqlalchemy import select, desc
+from fastapi.responses import JSONResponse
 
 coche = APIRouter()
 
@@ -28,7 +29,7 @@ async def get_coche(id: int):
     if coche_resultado is None:
         raise HTTPException(status_code=404, detail="No se encontró ningún coche con el ID proporcionado")
     
-    return coche_resultado._asdict()
+    return JSONResponse(content=coche_resultado._asdict(), status_code=200)
 
 @coche.get(
     "/lastCoche",
