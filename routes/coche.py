@@ -28,7 +28,7 @@ async def get_coche(id: int):
     if coche_resultado is None:
         raise HTTPException(status_code=404, detail="No se encontró ningún coche con el ID proporcionado")
     
-    return coche_resultado
+    return coche_resultado._asdict()
 
 @coche.get(
     "/lastCoche",
